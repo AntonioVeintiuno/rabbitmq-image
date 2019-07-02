@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rabbit-mq:
+    build: .
+    container_name: rabbit-mq
+    image: antoniogghlcn/rabbit-mq:init-img
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - standalone-net
+networks:
+  standalone-net:
+    external: true
